@@ -70,5 +70,16 @@ public class Puerto {
 
         return mapa;
     }
+    public String ContenedorBase(int prioridad){
+
+        String encontrados = "";
+
+        for (int i = 0; i < 3; i++) {
+            System.out.println("HUB "+ (i+1));
+            encontrados += this.hub[i].BuscarContenedor(prioridad) + "\n";
+        }
+
+        return encontrados;
+    }
 
 }

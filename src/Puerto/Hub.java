@@ -100,5 +100,45 @@ public class Hub {
         }
         return contador;
     }
+    public String BuscarContenedor(int prioridad){
+        String enviar = "";
+        if(prioridad==1){
+            if(cc[0][11]!= null) {
+                enviar = "ID: " + this.cc[0][11].getId() + "/ REMITENTE: " + this.cc[0][11].getNombreEnvia() + "/ PESO: " + this.cc[0][11].getPeso();
+                if(cc[0][11].isInspeccionado()){
+                    enviar += "/ REVISADO: SI";
+                }else{
+                    enviar += "/ REVISADO: NO";
+                }
+            }else{
+                System.out.println("NO HAY REGISTRO DE NINGUN CONTENEDOR EN ESTA POSICION");
+            }
+        }if(prioridad==2){
+            if(cc[0][11]!= null) {
+                enviar = "ID: " + this.cc[1][11].getId() + "/ REMITENTE: " + this.cc[1][11].getNombreEnvia() + "/ PESO: " + this.cc[1][11].getPeso();
+                if(cc[0][11].isInspeccionado()){
+                    enviar += "/ REVISADO: SI";
+                }else{
+                    enviar += "/ REVISADO: NO";
+                }
+            }else{
+                System.out.println("NO HAY REGISTRO DE NINGUN CONTENEDOR EN ESTA POSICION");
+            }
+        }if(prioridad==3){
+            for (int i=2; i<cc.length ; i++ ){
+                if(cc[i][11]!= null) {
+                    enviar = "ID: " + this.cc[i][11].getId() + "/ REMITENTE: " + this.cc[i][11].getNombreEnvia() + "/ PESO: " + this.cc[i][11].getPeso();
+                    if(cc[i][11].isInspeccionado()){
+                        enviar += "/ REVISADO: SI";
+                    }else{
+                        enviar += "/ REVISADO: NO";
+                    }
+                }else{
+                    System.out.println("NO HAY REGISTRO DE NINGUN CONTENEDOR EN ESTA POSICION");
+                }
+            }
+        }
+        return enviar;
+    }
 
 }
